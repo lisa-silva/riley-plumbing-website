@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riley's Plumbing | 24/7 Emergency Service | San Jose</title>
+    <meta name="description" content="Emergency plumbing services in San Jose. 24/7 availability, licensed & insured. Get same-day service for burst pipes, clogged drains, water heaters.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Emergency Header Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <span class="emergency-alert">🚨 24/7 EMERGENCY SERVICE</span>
+            <a href="tel:510-690-5197" class="emergency-phone">
+                <i class="fas fa-phone"></i> (510) 690-5197
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>Riley's Plumbing Co.</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#emergency" class="emergency-nav-btn">Emergency Help</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Plumbing Emergencies <span class="highlight">Solved Fast</span></h1>
+            <p class="hero-subtitle">Same-day service • Licensed & Insured • 40+ years experience</p>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="openEmergencyChat()">
+                    <i class="fas fa-bolt"></i> Get Emergency Help Now
+                </button>
+                <button class="btn-secondary" onclick="scrollToServices()">
+                    <i class="fas fa-tools"></i> View Our Services
+                </button>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Licensed & Insured</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Same-Day Service</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-star"></i>
+                    <span>5-Star Rated</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Plumbing Illustration -->
+        <div class="hero-animation">
+            <div class="pipe-animation"></div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Service Recommender -->
+    <section class="service-recommender">
+        <div class="container">
+            <h2>What's Your Plumbing Problem?</h2>
+            <div class="problem-selector">
+                <button class="problem-btn" data-problem="burst-pipe">🚰 Burst Pipe</button>
+                <button class="problem-btn" data-problem="clogged-drain">🪠 Clogged Drain</button>
+                <button class="problem-btn" data-problem="no-hot-water">🔥 No Hot Water</button>
+                <button class="problem-btn" data-problem="leaking-faucet">💧 Leaking Faucet</button>
+                <button class="problem-btn" data-problem="running-toilet">🚽 Running Toilet</button>
+            </div>
+            <div id="problem-solution" class="problem-solution"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Plumbing Services</h2>
+            <div class="services-grid">
+                <div class="service-card emergency-service">
+                    <div class="service-icon">🚨</div>
+                    <h3>Emergency Plumbing</h3>
+                    <p>24/7 emergency response for burst pipes, flooding, and urgent repairs</p>
+                    <ul>
+                        <li>Burst pipe repair</li>
+                        <li>Severe clog clearing</li>
+                        <li>Water leak detection</li>
+                    </ul>
+                    <button class="service-btn" onclick="openEmergencyChat()">Get Emergency Help</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Repair Services</h3>
+                    <p>Fix leaks, clogs, and plumbing issues with guaranteed work</p>
+                    <ul>
+                        <li>Leaky faucet repair</li>
+                        <li>Drain cleaning</li>
+                        <li>Toilet repair</li>
+                    </ul>
+                    <button class="service-btn" onclick="openPriceCalculator()">Get Estimate</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Installation</h3>
+                    <p>Professional installation of water heaters, fixtures, and more</p>
+                    <ul>
+                        <li>Water heater installation</li>
+                        <li>Fixture replacement</li>
+                        <li>Pipe replacement</li>
+                    </ul>
+                    <button class="service-btn" onclick="openPriceCalculator()">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Price Calculator -->
+    <section class="price-calculator">
+        <div class="container">
+            <h2>Get Instant Price Estimate</h2>
+            <div class="calculator">
+                <select id="service-type" onchange="updateEstimate()">
+                    <option value="">Select Service Type</option>
+                    <option value="leaky-faucet">Leaky Faucet Repair</option>
+                    <option value="clogged-drain">Clogged Drain Clearing</option>
+                    <option value="water-heater">Water Heater Repair</option>
+                    <option value="toilet-repair">Toilet Repair</option>
+                    <option value="pipe-repair">Pipe Repair</option>
+                </select>
+                
+                <select id="urgency" onchange="updateEstimate()">
+                    <option value="standard">Standard Service</option>
+                    <option value="urgent">Urgent (Within 24hrs)</option>
+                    <option value="emergency">Emergency (Same Day)</option>
+                </select>
+
+                <div id="estimate-result" class="estimate-result">
+                    <p>Select service type to see estimate</p>
+                </div>
+
+                <button class="btn-primary" onclick="scheduleService()">Schedule This Service</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>40+ Years Serving San Jose</h2>
+                    <p>Family-owned and operated since 1983, Riley's Plumbing has been the trusted choice for San Jose homeowners and businesses.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Jobs Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">40+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Emergency Service</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <!-- Team photo placeholder -->
+                    <div class team-placeholder>
+                        <i class="fas fa-users"></i>
+                        <p>Chris & Team Photo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Chris fixed our burst pipe at 2 AM! Incredible emergency service and fair pricing."</p>
+                    <span class="review-author">- Sarah M., San Jose</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional, clean, and honest. Fixed our water heater same-day."</p>
+                    <span class="review-author">- Mike T., Santa Clara</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best plumber in the South Bay. Uses quality parts and stands by his work."</p>
+                    <span class="review-author">- Lisa R., Campbell</span>
+                </div>
+            </div>
+            
+            <!-- Review CTA -->
+            <div class="review-cta">
+                <p>Love our service? <button onclick="openReviewModal()">Leave a Review</button></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contact Riley's Plumbing</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Emergency Line</strong>
+                            <p><a href="tel:510-690-5197">(510) 690-5197</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Service Area</strong>
+                            <p>San Jose & South Bay Area</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Hours</strong>
+                            <p>24/7 Emergency Service</p>
+                            <p>Mon-Fri: 7AM-7PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Schedule Service</h3>
+                    <form id="service-request-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <input type="email" placeholder="Email">
+                        <select required>
+                            <option value="">Service Needed</option>
+                            <option>Emergency Repair</option>
+                            <option>Drain Cleaning</option>
+                            <option>Water Heater</option>
+                            <option>General Plumbing</option>
+                        </select>
+                        <textarea placeholder="Describe your plumbing issue..." rows="4"></textarea>
+                        <button type="submit" class="btn-primary">Request Service</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Riley's Plumbing Co.</h3>
+                    <p>San Jose's Trusted Plumber Since 1983</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#emergency">Emergency</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-yelp"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Riley's Plumbing Co. | Licensed, Bonded, Insured</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Emergency Button -->
+    <div class="floating-emergency">
+        <button onclick="openEmergencyChat()">
+            <i class="fas fa-bolt"></i>
+            <span>EMERGENCY</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
